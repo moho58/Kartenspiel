@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<style>
+.Spielkarte {
+display: inline-block;
+width:200px; 
+height:300px; 
+margin:3px;
+border:1px solid #aaaaaa;
+position: relative;
+}
+
+canvas{
+border:3px solid #F2F2F2;
+border-radius: 5%;
+font-family: Verdana;
+font-size: 50px;
+position: absolute;
+}
+
+#Stapel {
+display: inline-block;
+float: right;
+width:200px; 
+height:300px; 
+margin:5px;
+padding:5px;
+border:1px solid #aaaaaa;
+}
+
+
+</style>
+
+<html>
+<head>
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+
+<body>
+<form>
+<select id="farbauswahl">
+  <option value="red" selected>rot</option>
+  <option value="green">gr&uuml;n</option>
+  <option value="blue">blau</option>
+  <option value="orange">orange</option>
+  <option value="grey">grau</option>
+  <option value="saddlebrown">braun</option>
+  <option value="purple">lila</option>
+</select>
+<input id="zahlauswahl" type="number" min="1" max="8" value="1"/>
+<button id="b1" type="button" onclick="changeCard(this.form.zahlauswahl.value, this.form.farbauswahl.value)">Karte, wechsel dich!</button>
+</form>
+<br />
+
+
+
+<div id ="Stapel" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div class="Spielkarte" ondrop="drop(event)" ondragover="allowDrop(event)">
+<canvas id="ZeroRed1" draggable="true" ondragstart="drag(event)" ondrop="drop(event)" 
+ondragover="allowDrop(event)" width="200" height="300">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+function changeCard(zahlwert, farbwert) {
+	
+/*var zahlwert = document.getElementById("zahlauswahl").value;
+var farbwert = document.getElementById("farbauswahl").value;*/
+	
+var myCanvas = document.getElementById("ZeroRed1");
+var ctx=myCanvas.getContext("2d");
+ctx.fillStyle = farbwert;
+ctx.fillRect(0,0,200,300);
+ctx.beginPath();
+ctx.arc(100,130,60,0,2*Math.PI);
+ctx.fillStyle="#F2F2F2";
+ctx.fill();
+ctx.font="50px Comic Sans MS";
+ctx.fillStyle = farbwert;
+ctx.textAlign = "center";
+ctx.fillText(zahlwert,myCanvas.width/2, myCanvas.height/2);
+//document.getElementById("ZeroRed1").style = "background-color:" + farbwert +";";
+}
+</script>
+</div>
+<div class="Spielkarte" ondrop="drop(event)" ondragover="allowDrop(event)">
+<canvas id="ZeroRed2" draggable="true" ondragstart="drag(event)" width="200" height="300">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("ZeroRed2");
+var ctx=canvas.getContext("2d");
+ctx.fillStyle = "#8A0808";
+ctx.fillRect(0,0,200,300);
+ctx.beginPath();
+ctx.arc(100,130,60,0,2*Math.PI);
+ctx.fillStyle="#F2F2F2";
+ctx.fill();
+ctx.font="50px Comic Sans MS";
+ctx.fillStyle = "#8A0808";
+ctx.textAlign = "center";
+ctx.fillText("2", canvas.width/2, canvas.height/2);
+
+</script>
+</div>
+<div class="Spielkarte" ondrop="drop(event)" ondragover="allowDrop(event)">
+<canvas id="ZeroRed3" draggable="true" ondragstart="drag(event)" width="200" height="300">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("ZeroRed3");
+var ctx=canvas.getContext("2d");
+ctx.fillStyle = "#8A0808";
+ctx.fillRect(0,0,200,300);
+ctx.beginPath();
+ctx.arc(100,130,60,0,2*Math.PI);
+ctx.fillStyle="#F2F2F2";
+ctx.fill();
+ctx.font="50px Comic Sans MS";
+ctx.fillStyle = "#8A0808";
+ctx.textAlign = "center";
+ctx.fillText("3", canvas.width/2, canvas.height/2);
+</script>
+</div>
+
+<div class="Spielkarte" ondrop="drop(event)" ondragover="allowDrop(event)">
+<canvas id="ZeroRed4" draggable="true" ondragstart="drag(event)" width="200" height="300">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("ZeroRed4");
+var ctx=canvas.getContext("2d");
+ctx.fillStyle = "#8A0808";
+ctx.fillRect(0,0,200,300);
+ctx.beginPath();
+ctx.arc(100,130,60,0,2*Math.PI);
+ctx.fillStyle="#F2F2F2";
+ctx.fill();
+ctx.font="50px Comic Sans MS";
+ctx.fillStyle = "#8A0808";
+ctx.textAlign = "center";
+ctx.fillText("4", canvas.width/2, canvas.height/2);
+</script>
+</div>
+
+<div class="Spielkarte" ondrop="drop(event)" ondragover="allowDrop(event)">
+<canvas id="ZeroRed5" draggable="true" ondragstart="drag(event)" width="200" height="300">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("ZeroRed5");
+var ctx=canvas.getContext("2d");
+ctx.fillStyle = "#8A0808";
+ctx.fillRect(0,0,200,300);
+ctx.beginPath();
+ctx.arc(100,130,60,0,2*Math.PI);
+ctx.fillStyle="#F2F2F2";
+ctx.fill();
+ctx.font="50px Comic Sans MS";
+ctx.fillStyle = "#8A0808";
+ctx.textAlign = "center";
+ctx.fillText("5", canvas.width/2, canvas.height/2);
+</script>
+</div>
+
+<div class="Spielkarte" ondrop="drop(event)" ondragover="allowDrop(event)">
+<canvas id="ZeroRed6" draggable="true" ondragstart="drag(event)" width="200" height="300">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("ZeroRed6");
+var ctx=canvas.getContext("2d");
+ctx.fillStyle = "#8A0808";
+ctx.fillRect(0,0,200,300);
+ctx.beginPath();
+ctx.arc(100,130,60,0,2*Math.PI);
+ctx.fillStyle="#F2F2F2";
+ctx.fill();
+ctx.font="50px Comic Sans MS";
+ctx.fillStyle = "#8A0808";
+ctx.textAlign = "center";
+ctx.fillText("6", canvas.width/2, canvas.height/2);
+</script>
+</div>
+
+<div class="Spielkarte" ondrop="drop(event)" ondragover="allowDrop(event)">
+<canvas id="ZeroRed7" draggable="true" ondragstart="drag(event)" width="200" height="300">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("ZeroRed7");
+var ctx=canvas.getContext("2d");
+ctx.fillStyle = "#8A0808";
+ctx.fillRect(0,0,200,300);
+ctx.beginPath();
+ctx.arc(100,130,60,0,2*Math.PI);
+ctx.fillStyle="#F2F2F2";
+ctx.fill();
+ctx.font="50px Comic Sans MS";
+ctx.fillStyle = "#8A0808";
+ctx.textAlign = "center";
+ctx.fillText("7", canvas.width/2, canvas.height/2);
+</script>
+</div>
+
+<div class="Spielkarte" ondrop="drop(event)" ondragover="allowDrop(event)">
+<canvas id="ZeroRed8" draggable="true" ondragstart="drag(event)" width="200" height="300">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+var canvas = document.getElementById("ZeroRed8");
+var ctx=canvas.getContext("2d");
+ctx.fillStyle = "#8A0808";
+ctx.fillRect(0,0,200,300);
+ctx.beginPath();
+ctx.arc(100,130,60,0,2*Math.PI);
+ctx.fillStyle="#F2F2F2";
+ctx.fill();
+ctx.font="50px Comic Sans MS";
+ctx.fillStyle = "#8A0808";
+ctx.textAlign = "center";
+ctx.fillText("8", canvas.width/2, canvas.height/2);
+</script>
+</div>
+
+
+</body>
+</html>
+
